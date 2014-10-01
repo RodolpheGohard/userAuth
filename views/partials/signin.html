@@ -1,0 +1,46 @@
+<!-- views/signin.handlebars -->
+<div class="jumbotron">
+	<h1>Sign in</h1>
+
+	<p>We're using passport.js to demonstrate user authentication. Please sign-in with your Local, Twitter,
+		Google, or Facebook account to view your profile.</p>
+
+	<div id="local" class="collapse">
+		<a data-toggle="collapse" href="#local-sign-in" class="btn btn-default btn-md" role="button">I already
+			have an account</a>
+		<a data-toggle="collapse" href="#local-reg" class="btn btn-default btn-md" role="button">I need to
+			make an account</a>
+	</div>
+
+	<form id="local-sign-in" class="" action="/login" method="post">
+		<h2>LOGIN</h2>
+		<div>
+			<p></p>
+			<label>Username:</label>
+			<input type="text" name="username"/>
+		</div>
+		<div>
+			<label>Password:</label>
+			<input type="password" name="password"/>
+		</div>
+		<div>
+			<input type="submit" class="btn btn-primary btn-sm" value="Log In"/>
+		</div>
+	</form>
+
+	<form id="local-reg" class="" action="/local-reg" method="post">
+		<h2>REGISTER</h2>
+		<div>
+			<p></p>
+			<label>New Username:</label>
+			<input type="text" name="username"/>
+		</div>
+		<div>
+			<label>New Password:</label>
+			<input type="password" name="password"/>
+		</div>
+		<div>
+			<input type="submit" class="btn btn-primary btn-sm" value="Register"/>
+		</div>
+	</form>
+</div>
