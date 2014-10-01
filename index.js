@@ -120,9 +120,6 @@ app.get( '/', function ( req, res ) {
 	res.render( 'home', {user: req.user} );
 } );
 
-app.get( '/session', function( req, res ) {
-	return res.send(req.user);
-} );
 
 //displays our signup page
 app.get( '/signin', function ( req, res ) {
@@ -152,6 +149,19 @@ app.get( '/logout', function ( req, res ) {
 	req.session.notice = "You have successfully been logged out " + name + "!";
 } );
 
+
+app.get( '/session', function( req, res ) {
+	return res.send(req.user);
+} );
+
+
+app.get( '/randomstuff', function( req, res ) {
+	if (req.isAuthenticated()) {
+		return res.send({youpi:'piyou',lala: Math.random()*18});		
+	} else {
+		return res.send('401', "Oh, l'ami, faut s'authentifier un peu");
+	}
+} );
 //app.get('/nghome', function(req, res) {
 //});
 

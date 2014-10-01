@@ -66,10 +66,12 @@
 
 	<ng-view></ng-view>
 
-	<button ng-click=" refreshSession() ">refresh session</button>
+	<button class="btn btn-default" ng-click=" callRandom() ">callRandom</button>
+	::
+	<button class="btn btn-default" ng-click=" refreshSession() ">refresh session</button>
 	::
 	<!--<button ng-click=" logout() ">logout</button>-->
-	<a href="/logout">logout</a>
+	<a class="btn btn-default" href="/logout">logout</a>
 </div>
 
 
@@ -110,9 +112,16 @@
 		
 	} );
 	
-	interceptedLogin.run( function($rootScope,refreshSession) {
+	interceptedLogin.factory('randomWebService', function($resource) {
+		return $resource('/randomstuff');
+	});
+	
+	interceptedLogin.run( function($rootScope,refreshSession,randomWebService) {
 		refreshSession();
 		$rootScope.refreshSession = refreshSession;
+		$rootScope.callRandom = function() {
+			randomWebService.get();	
+		};
 	});
 </script>
 </body>
