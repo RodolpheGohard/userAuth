@@ -79,10 +79,11 @@ function ensureAuthenticated(req, res, next) {
 }
 
 
-//===============EXPRESS=================
-
 // Configure Express
 app.use(express.logger());
+app.set('views', __dirname + '/views');
+app.engine('.html', require('ejs').renderFile);
+app.set('view engine', 'html');
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -109,12 +110,6 @@ app.use(function(req, res, next){
 
 app.use(app.router);
 
-// Configure express to use handlebars templates
-var hbs = exphbs.create({
-    defaultLayout: 'main',
-});
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
 
 
 //===============ROUTES=================
@@ -151,6 +146,8 @@ app.get('/logout', function(req, res){
   req.session.notice = "You have successfully been logged out " + name + "!";
 });
 
+//app.get('/nghome', function(req, res) {
+//});
 
 //===============PORT=================
 var port = process.env.PORT || 5000;
