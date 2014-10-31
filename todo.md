@@ -1,7 +1,7 @@
 TODO
 ====
 
-* créer un genre de formulaire à la con. Donner une illusion genre 16ème étape
+* -créer un genre de formulaire à la con. Donner une illusion genre 16ème étape-
 * Créer un webservice pour accueillir la soumission de ce formulaire
 * Etape 1: utiliser le callback error pour afficher une erreur
 * Etape 2: utiliser le callback error pour rediriger vers le login
