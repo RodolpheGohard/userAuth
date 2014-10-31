@@ -1,0 +1,35 @@
+{
+  "name": "on-the-fly-relog demo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/RodolpheGohard/userAuth",
+  "authors": [
+    "Rodolphe Gohard <rodolphe@gohard.fr>"
+  ],
+  "description": "demonstrate how one can use interceptors to catch loss of authentication and then prompt the user for logging again with losing the state he were in.",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "anfular",
+    "interceptor",
+    "401",
+    "login"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "~1.2.25",
+    "angular-route": "~1.2.25",
+    "angular": "~1.2.25",
+    "bootstrap": "~3.3.0",
+    "jquery": "~2.1.1"
+  }
+}

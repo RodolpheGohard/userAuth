@@ -11,7 +11,7 @@
 	<title>User Authentication</title>
 
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 
 </head>
 
@@ -66,16 +66,22 @@
 
 	<ng-view></ng-view>
 
-	<button class="btn btn-default" ng-click=" callRandom() ">callRandom</button>
-	::
-	<button class="btn btn-default" ng-click=" refreshSession() ">refresh session</button>
-	::
-	<!--<button ng-click=" logout() ">logout</button>-->
-	<a class="btn btn-default" href="/logout">logout</a>
+	<footer>
+		<hr />
+		
+		<button class="btn btn-default" ng-click=" callRandom() ">callRandom</button>
+		::
+		<button class="btn btn-default" ng-click=" refreshSession() ">refresh session</button>
+		::
+		<!--<button ng-click=" logout() ">logout</button>-->
+		<a class="btn btn-default" href="/logout">logout</a>
+		
+	</footer>
 </div>
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/js/"
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
