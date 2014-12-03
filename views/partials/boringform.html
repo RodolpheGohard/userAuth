@@ -1,5 +1,5 @@
 
-<section>
+<section ng-controller="BoringFormController">
 	<h1>Nth Step</h1>
 
 	<div class="row">
@@ -48,12 +48,13 @@
 		</form>
 		
 	</div>
+	
+	<div class="row">
+		<progress value="60" max="100" style="display: block;" class="col-md-8"></progress>
+		<button class="pull-right btn btn-success btn-lg" ng-click="submitForm()">Almost done! Proceed to step 7/15</button>
+	</div>
 
 </section>
 
-<div class="row">
-	<progress value="60" max="100" style="display: block;" class="col-md-8"></progress>
-	<button class="pull-right btn btn-success btn-lg">Almost done! Proceed to step 7/15</button>	
-</div>
 
 <hr />

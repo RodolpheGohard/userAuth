@@ -1,0 +1,39 @@
+<div class="well no-padding">
+	<form id="login-form" class="smart-form client-form" novalidate="novalidate" ng-submit="submit()">
+		<header>
+			Login
+		</header>
+
+		<div alerts></div>
+
+		<fieldset>
+
+			<section>
+				<label class="label" translate>login.email</label>
+				<label class="input"> <i class="icon-append fa fa-user"></i>
+					<input type="text" name="login" ng-model="credentials.username" ng-disabled=" forceUser " />
+					<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>{{'login.emailTooltip'}}</b>
+				</label>
+				<div class="note" ng-if=" forceUser ">
+					<a href="." translate>login.connectWithAnotherUser <i class="fa fa-arrow-right"> </i></a>
+				</div>
+			</section>
+
+			<section>
+				<label class="label" translate>login.password</label>
+				<label class="input"> <i class="icon-append fa fa-lock"></i>
+					<input type="password" name="password" ng-model="credentials.password" />
+					<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i>{{'login.passwordTooltip'}}</b>
+				</label>
+				<div class="note">
+					<a href="" translate>login.forgotPassword</a>
+				</div>
+			</section>
+
+		</fieldset>
+
+	</form>
+	
+	<button ng-click="submit()">Submit</button>
+
+</div>

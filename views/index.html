@@ -81,14 +81,14 @@
 
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/bootstrap/js/"
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
 <script>
-	var interceptedLogin = angular.module('interceptedLogin',['ngRoute','ngResource']);
+	var interceptedLogin = angular.module('interceptedLogin',['ngRoute','ngResource','ui.bootstrap']);
 	
 	interceptedLogin.config( function($routeProvider) {
 		$routeProvider
@@ -131,6 +131,46 @@
 		$rootScope.callRandom = function() {
 			randomWebService.get();	
 		};
+	});
+	
+	interceptedLogin.controller('BoringFormController', function( $scope, $window, $modal, randomWebService ) {
+		$scope.submitForm = function() {
+			var formPromise = randomWebService.get().$promise;
+			
+			formPromise.then( function() {
+				$window.alert('tout roule!');
+			});
+			
+			formPromise.catch( function( error ) {
+				if (error.status == 401 ) {
+					var moudale = $modal.open({
+						backdrop: 'static',
+						keyboard: false,
+						templateUrl: 'partials/loginBox.html',
+						size: 'sm',
+						//windowClass: 'jambon',
+						controller: 'ModalLoginController',
+						scope: $scope //this makes the dialog a child scope of this controller scope, and not rootScope
+					});
+					
+					moudale.result.then( function() {
+						//Si on loggin avec Succes, alors on reprend la requête
+						$scope.submitForm();
+					});
+				}
+			});
+		};
+	});
+	
+	interceptedLogin.controller('ModalLoginController', function( $scope, $http, $modalInstance ) {
+		$scope.submit = function() {
+			$http.post('login', $scope.credentials ).success( function(response) {
+				console.log(response);
+				$modalInstance.close( 'ok dude' );
+			} ).error( function(error) {
+				console.error(error);
+			} );
+		}
 	});
 </script>
 </body>
